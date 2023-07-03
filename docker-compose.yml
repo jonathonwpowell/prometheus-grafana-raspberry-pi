@@ -16,13 +16,13 @@ services:
             - '--web.enable-lifecycle'
         ports:
             - "9090:9090"
-        restart: on-failure
+        restart: always
     node-exporter:
         container_name: node-exporter
         image: prom/node-exporter-linux-armv7
         ports:
             - "9100:9100"
-        restart: on-failure
+        restart: always
     grafana:
         container_name: grafana
         image: grafana/grafana:latest
@@ -38,15 +38,13 @@ services:
             - prometheus
         ports:
             - "3000:3000"
-        restart: on-failure
-    alertmanager:
-        container_name: alertmanager
-        build: ./alertmanager
-        command:
-            - '--config.file=/alertmanager.yml'
+        restart: always
+      speedtest:
+        container-name: speedtest
+        image: miguelndecarvalho/speedtest-exporter
         ports:
-            - "9093:9093"
-        restart: on-failure
+          - "9798:9798"
+        restart: alway
 volumes:
     prometheus_data: {}
     grafana_data: {}
