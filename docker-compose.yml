@@ -44,7 +44,7 @@ services:
         image: miguelndecarvalho/speedtest-exporter
         ports:
           - "9798:9798"
-        restart: alway
+        restart: always
 volumes:
     prometheus_data: {}
     grafana_data: {}
