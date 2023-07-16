@@ -39,7 +39,7 @@ services:
         ports:
             - "3000:3000"
         restart: always
-      speedtest:
+    speedtest:
         container-name: speedtest
         image: miguelndecarvalho/speedtest-exporter
         ports:
